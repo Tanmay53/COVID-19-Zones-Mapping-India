@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width: device-width, initial-scale: 1.0">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+        <style>
+            #map {
+                height: 900px;
+                width: 900px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="#distMap">COVID - 19 District Zones Mapped</a>
+        </header>
+        <div id="mapButton">Go to District Map</div>
+        <article>
+            <div class="nText">India is facing a lot of difficluties in the form of <a href="#defineCorona">COVID - 19</a>, a disease which has affected many parts of the world very adversely.</div>
+            <a name="defineCorona"></a>
+            <dl>
+                <dt>COVID - 19</dt>
+                <dd>
+                    <p>Coronavirus disease(COVID - 19) is an infectious disease caused by a newly discovered coronavirus.</p>
+                    <p>Most people infected with the COVID - 19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment. Older people and those with underlying problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
+                </dd>
+            </dl>
+            <div class="nText">The PM of India had imposed a complete <b>21</b> Day lockdown to tackle the situation.</div>
+            <div class="quotes">
+                There is only one way to effectively deal with coronavirus - social diatancing.
+            </div>
+            <div class="nText">It came out to be a great step because the stats show that India has shown a very less growth of <a href="#defineCorona">COVID - 19</a> cases has been very minimal as compared to the other countries.</div>
+            <div class="nText">After the completion of the 21 day lockdown an extention of <b>19</b> days was announced by the PM of India till <b>3<sup>rd</sup> May.</b></div>
+            <div class="nText">But this time seeing the control of the situation, the non - affected districts will be partially releaved from the lockdown.</div>
+            <div class="nText">The districts are classified into three categories :-</div>
+            <dl id="categoryList">
+                <dt>Red Zones :</dt>
+                <dd>
+                    <div class="catInfo">The Hotspot districts or the areas reporting large number of <a href="#defineCorona">COVID - 19</a> cases and high growth rate.</div>
+                    <div class="noOfDistricts"> <span>District Count - </span>170 (123 with large outbreak and 47 with clusters) </div>
+                    <div class="services"> <span>Exemptions - </span>No business activity except the <a>earlier exempted activities</a> will be allowed with door to door facilities.</div>
+                    <div class="scope"> <span>Criterion for improvement - </span> If no new cases are reported for <b>14</b> Days then it will change to Orange Zone.</div>
+                </dd>
+                <dt>Orange Zones :</dt>
+                <dd>
+                    <div class="catInfo">The areas with a limited number of cases in the past and with no surge in positive cases recently.</div>
+                    <div class="noOfDistricts"> <span>District Count - </span> </div>
+                    <div class="services"> <span>Exemptions - </span>Only restricted activities such as limited public transport and farm products harvesting and MSME's engaged in manufacturing of essential items.</div>
+                    <div class="scope"> <span>Criterion for improvement - </span>If no more cases are reported for <b>14</b> Days then it will change to Green Zone.</div>
+                </dd>
+                <dt>Red Zones :</dt>
+                <dd>
+                    <div class="catInfo">The Districts with no reported positive Coronavirus cases.</div>
+                    <div class="noOfDistricts"> <span>District Count - </span> 207 </div>
+                    <div class="services"> <span>Exemptions - </span>Limited movement of people linked to essential services may be given exemption. Government revenue generating businesses may be exempted.</div>
+                </dd>
+            </dl>
+            <br />
+            <br />
+            <a name="distMap"></a>
+            <div id="mapBox">
+                <div id="map" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0" style="position: relative;"></div>
+                <div id="mapForm">
+                    <div id="mapFormHead">District Info</div>
+                    <div id="mapFormDescroption">Select your state and district to know the Category of your District.</div>
+                    <div id="mapSelectors">
+                        <select id="state">
+                        </select>
+                        <select id="district" placeholder="Selcet the your state to select the district.">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <footer>
+            <div id="introduction">
+                <div id="introName">By Tanmay Khatri</div>
+                <div id="introMail"><a href="mailto:tanmaykhatri53@gmail.com">tanmaykhatri53@gmail.com</a></div>
+                <div id="introGit">Git Hub : <a href="https://github.com/tanmay53">Tanmay53</a></div>
+            </div>
+            <div id="credits">
+                <div class="creditor"><a href="https://github.com/guneetnarula/indian-district-boundaries">guneetnarula/indian-district-boundaries</a></div>
+                <div class="creditInfo">The district boundary mapped is mapped by a geoJSON file provided by a Git repository created by <a href="https://github.com/guneetnarula">guneetnarula</a>.</div>
+            </div>
+        </footer>
+    </body>
+    <script type="text/javascript" src="mapper.js"></script>
+</html>
