@@ -7,9 +7,12 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
+
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
+
+        <script type="text/javascript" src="resources/districtZoneData.js"></script>
 
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
@@ -74,13 +77,16 @@
                         </select>
                     </div>
                 </div>
-                
+                <div id="mapBoard">
+                    <div id="districtStatus">Green Zone</div>
+                    <div id="stateMap" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0" style="position: relative;"></div>
+                </div>
             </div>
         </article>
         <footer>
             <div id="introduction">
                 <div id="introName">By Tanmay Khatri</div>
-                <div id="introMail">Mail : <a href="mailto:tanmaykhatri53@gmail.com">tanmaykhatri53@gmail.com</a></div>
+                <div id="introMail">mail : <a href="mailto:tanmaykhatri53@gmail.com">tanmaykhatri53@gmail.com</a></div>
                 <div id="introGit">Git Hub : <a href="https://github.com/tanmay53">Tanmay53</a></div>
             </div>
             <div id="credits">

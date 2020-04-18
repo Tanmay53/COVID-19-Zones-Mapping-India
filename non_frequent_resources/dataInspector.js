@@ -18,17 +18,21 @@ fs.readFile("../resources/india-districts-770.geojson", "utf-8", function(err, d
   }
 
   //console.log(districtNames);
+  dataValidator(dataFile.districts);
+  dataValidator(dataFile.coordinatedStates);
+  function dataValidator(stateObject = {}) {
+    for(key in stateObject) {
 
-  for(key in dataFile.districts) {
-    var capsKey = key.toUpperCase();
-
-    if(districtNames[capsKey] == undefined) {
-      console.log(capsKey);
-    }
-    else {
-      for(var index = 0; index < dataFile.districts[key].length; index++) {
-        if(districtNames[capsKey].indexOf(dataFile.districts[key][index]) == -1) {
-          console.log(districtNames[capsKey], dataFile.districts[key][index], index);
+      if(districtNames[key.toUpperCase()] == undefined) {
+        console.log(key);
+      }
+      else {
+        if(stateObject.lat == undefined) {
+            for(var index = 0; index < stateObject[key].length; index++) {
+              if(districtNames[key].indexOf(stateObject[key][index]) == -1) {
+                console.log(districtNames[key], stateObject[key][index], index);
+              }
+            }
         }
       }
     }
