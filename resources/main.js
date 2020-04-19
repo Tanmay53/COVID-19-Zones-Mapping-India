@@ -52,7 +52,12 @@ districtSelector.addEventListener("change", function() {
     stateMapElement.style.display = "block";
 
     var coordinates = stateCoordinates[stateSelector.value];  // moving focus to the state.
-    stateMap[0].panTo(new L.LatLng(coordinates.lat, coordinates.long));
+    //stateMap[0].setZoom(coordinates.zoom);
+    stateMap[0].flyTo(new L.latLng(coordinates.lat, coordinates.long), coordinates.zoom); 
+    
+    // There are two districts named as Balrampur one in UP and one in chattisgarh.
+    // So to prevent from selecting wrong district a space is added to Balrampur of Chattisgarh in india-districts-770.geojson.
+    // same case for Pratapgarh and Hamirpur.
 
     if(previousLayer.data != undefined) {
       previousLayer.data.setStyle(previousLayer.style);
@@ -82,3 +87,7 @@ function selectionCheck(currentElement, dependent) {
     return true;
   }
 }
+
+document.getElementById("mapButton").addEventListener("click", function() {
+  document.location = "#mapBox";
+})

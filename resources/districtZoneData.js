@@ -44,12 +44,12 @@ var stateCoordinates = {
   "ANDAMAN & NICOBAR": {
     "lat":11.66702557,
     "long":92.73598262,
-    "zoom": 7
+    "zoom": 6
   },
   "ANDHRA PRADESH": {
     "lat":14.7504291,
     "long":78.57002559,
-    "zoom": 7
+    "zoom": 6
   },
   "ARUNACHAL PRADESH":{
     "lat":27.10039878,
@@ -69,7 +69,7 @@ var stateCoordinates = {
   "CHANDIGARH":{
     "lat":30.71999697,
     "long":76.78000565,
-    "zoom": 7
+    "zoom": 10
   },
   "CHHATTISGARH":{
     "lat":22.09042035,
@@ -79,21 +79,22 @@ var stateCoordinates = {
   "DADRA & NAGAR HAVELI":{
     "lat":20.26657819,
     "long":73.0166178,
-    "zoom": 7
+    "zoom": 9
   },
   "DAMAN & DIU": {
     "lat":20.4283,
     "long":72.8397,
-    "zoom": 7
+    "zoom": 8
   },
   "DELHI":{
     "lat":28.6699929,
-    "long":77.23000403
+    "long":77.23000403,
+    "zoom": 9
   },
   "GOA":{
     "lat":15.491997,
     "long":73.81800065,
-    "zoom": 7
+    "zoom": 9
   },
   "GUJARAT":{
     "lat":22.2587,
@@ -117,12 +118,13 @@ var stateCoordinates = {
   },
   "JHARKHAND":{
     "lat":23.80039349,
-    "long":86.41998572
+    "long":86.41998572,
+    "zoom": 7
   },
   "KARNATAKA":{
     "lat":12.57038129,
     "long":76.91999711,
-    "zoom": 7
+    "zoom": 6
   },
   "KERALA":{
     "lat":8.900372741,
@@ -131,7 +133,7 @@ var stateCoordinates = {
   },
   "LADAKH": {
     "lat":34.152588,
-    "long":77.577049,
+    "long":76.577049,
     "zoom": 7
   },
   "LAKSHADWEEP":{
@@ -140,34 +142,34 @@ var stateCoordinates = {
     "zoom": 7
   },
   "MADHYA PRADESH":{
-    "lat":21.30039105,
-    "long":76.13001949,
+    "lat":23.30039105,
+    "long":79.13001949,
     "zoom": 7
   },
   "MAHARASHTRA":{
-    "lat":19.25023195,
-    "long":73.16017493,
+    "lat":18.25023195,
+    "long":77.16017493,
     "zoom": 7
   },
   "MANIPUR":{
     "lat":24.79997072,
     "long":93.95001705,
-    "zoom": 7
+    "zoom": 9
   },
   "MEGHALAYA":{
     "lat":25.57049217,
     "long":91.8800142,
-    "zoom": 7
+    "zoom": 8
   },
   "MIZORAM":{
     "lat":23.71039899,
     "long":92.72001461,
-    "zoom": 7
+    "zoom": 8
   },
   "NAGALAND":{
     "lat":25.6669979,
     "long":94.11657019,
-    "zoom": 7
+    "zoom": 8
   },
   "ODISHA":{
     "lat":19.82042971,
@@ -175,9 +177,9 @@ var stateCoordinates = {
     "zoom": 7
   },
   "PUDUCHERRY":{
-    "lat":11.93499371,
+    "lat":12.93499371,
     "long":79.83000037,
-    "zoom": 7
+    "zoom": 6
   },
   "PUNJAB":{
     "lat":31.51997398,
@@ -186,13 +188,13 @@ var stateCoordinates = {
   },
   "RAJASTHAN":{
     "lat":26.44999921,
-    "long":74.63998124,
+    "long":74.13998124,
     "zoom": 7
   },
   "SIKKIM":{
     "lat":27.3333303,
     "long":88.6166475,
-    "zoom": 7
+    "zoom": 9
   },
   "TELANGANA":{
     "lat":18.1124,
@@ -200,27 +202,27 @@ var stateCoordinates = {
     "zoom": 7
   },
   "TAMIL NADU":{
-    "lat":12.92038576,
+    "lat":10.92038576,
     "long":79.15004187,
     "zoom": 7
   },
   "TRIPURA":{
     "lat":23.83540428,
     "long":91.27999914,
-    "zoom": 7
+    "zoom": 9
   },
   "UTTAR PRADESH":{
     "lat":27.59998069,
-    "long":78.05000565,
+    "long":80.05000565,
     "zoom": 7
   },
   "UTTARAKHAND":{
     "lat":30.32040895,
-    "long":78.05000565,
-    "zoom": 7
+    "long":79.05000565,
+    "zoom": 8
   },
   "WEST BENGAL":{
-    "lat":22.58039044,
+    "lat":23.58039044,
     "long":88.32994665,
     "zoom": 7
   }

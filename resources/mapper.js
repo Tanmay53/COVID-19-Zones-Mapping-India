@@ -73,14 +73,14 @@ var redZoneStyle = {
     fillColor: "#ff0000",
     fillOpacity: 0.4,
     color: "#ff0000",
-    weight: 0.5
+    weight: 0.3
 };
 
 var noDataZoneStyle = {
-    fillColor: "#2222ff",
+    fillColor: "#99e9e9",
     fillOpacity: 0.2,
     color: "#000",
-    weight: 0.5
+    weight: 0.3
 };
 
 var duplicateDistrictStyle = {
