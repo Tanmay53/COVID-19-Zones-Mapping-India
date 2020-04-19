@@ -1,7 +1,10 @@
 var districtNames = {};
 
 function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 80.9629) {
-    var map = L.map(elementId).setView([latitude, longitude], zoomLevel);
+    var map = L.map(elementId, {
+        dragging: false
+        //maxBoundsViscosity: 1
+    }).setView([latitude, longitude], zoomLevel);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -27,7 +30,7 @@ function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 8
                     return districtStyling(feature);
                 },
 
-                onEachFeature: saveLayer
+                onEachFeature: featureFunctions
             }).addTo(map);
             if(elementId == "stateMap") {
                 document.getElementById("mapBoard").style.display = "none";
@@ -61,9 +64,12 @@ function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 8
             return noDataZoneStyle;
         }
     }
+    
+    function featureFunctions(feature, layer) {
+        districtLayers[feature.properties.dtname] = layer; // saving layer for use in district layer selection.
 
-    function saveLayer(feature, layer) {
-        districtLayers[feature.properties.dtname] = layer;
+        var popUpContent = "<p> State : " + feature.properties.stname + "<br /> District : " + feature.properties.dtname + "</p>";
+        layer.bindPopup(popUpContent); // adding Pop to every layer.
     }
 
     return [map, districtLayers];
