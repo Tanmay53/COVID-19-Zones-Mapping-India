@@ -1,5 +1,10 @@
 var districtNames = {};
 
+var largeOutbreakStates = Object.keys(largeOutbreaks);
+var clusterStates = Object.keys(clusters);
+var redZoneStates = largeOutbreakStates.concat(clusterStates);
+var orangeZoneStates = Object.keys(orangeZones);
+
 function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 80.9629) {
     var map = L.map(elementId, {
         dragging: false
@@ -49,26 +54,52 @@ function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 8
         var stateName = feature.properties["stname"];
         var districtName = feature.properties["dtname"];
 
-        mappedDistricts.push(districtName);
-        var redStates = Object.keys(hotspotDistricts);
+        if(mappedDistricts.indexOf(districtName) == -1) {
+            mappedDistricts.push(districtName);
 
-        if(redStates.indexOf(stateName) != -1) {
-            if(hotspotDistricts[stateName].indexOf(districtName) != -1) {
+            if(((largeOutbreakStates.indexOf(stateName) != -1) && (largeOutbreaks[stateName].indexOf(districtName) != -1)) ||
+            ((clusterStates.indexOf(stateName) != -1) && (clusters[stateName].indexOf(districtName) != -1))) {
                 return redZoneStyle;
             }
+            else if((orangeZoneStates.indexOf(stateName) != -1) &&
+            (orangeZones[stateName].indexOf(districtName) != -1)) {
+                return orangeZoneStyle;
+            }
             else {
-                return noDataZoneStyle;
+                return greenZoneStyle;
             }
         }
         else {
-            return noDataZoneStyle;
+            return duplicateDistrictStyle;
+
         }
     }
     
     function featureFunctions(feature, layer) {
         districtLayers[feature.properties.dtname] = layer; // saving layer for use in district layer selection.
 
-        var popUpContent = "<p> State : " + feature.properties.stname + "<br /> District : " + feature.properties.dtname + "</p>";
+        //Saving the Data about Zone.
+        var stateName = feature.properties["stname"];
+        var districtName = feature.properties["dtname"];
+
+        if((largeOutbreakStates.indexOf(stateName) != -1) && (largeOutbreaks[stateName].indexOf(districtName) != -1)) {
+            feature.properties.zoneType = "Red Zone (Large OutBreak)";
+            feature.properties.zoneColor = "#ff0000";
+        }
+        else if((clusterStates.indexOf(stateName) != -1) && (clusters[stateName].indexOf(districtName) != -1)) {
+            feature.properties.zoneType = "Red Zone (Cluster)";
+            feature.properties.zoneColor = "#ff0000";
+        }
+        else if((orangeZoneStates.indexOf(stateName) != -1) && (orangeZones[stateName].indexOf(districtName) != -1)) {
+            feature.properties.zoneType = "Orange Zone";
+            feature.properties.zoneColor = "#fa6f12";
+        }
+        else {
+            feature.properties.zoneType = "Green Zone";
+            feature.properties.zoneColor = "#00ff00";
+        }
+
+        var popUpContent = "<p> State : " + feature.properties.stname + "<br /> District : " + feature.properties.dtname + "<br /> Zone : " + feature.properties.zoneType + "</p>";
         layer.bindPopup(popUpContent); // adding Pop to every layer.
     }
 
@@ -78,9 +109,23 @@ function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 8
 var redZoneStyle = {
     fillColor: "#ff0000",
     fillOpacity: 0.4,
-    color: "#ff0000",
+    color: "#000",
     weight: 0.3
 };
+
+var orangeZoneStyle = {
+    fillColor: "#fa6f12",
+    fillOpacity: 0.4,
+    color: "#000",
+    weight: 0.3
+}
+
+var greenZoneStyle = {
+    fillColor: "#00ff00",
+    fillOpacity: 0.4,
+    color: "#000",
+    weight: 0.3
+}
 
 var noDataZoneStyle = {
     fillColor: "#99e9e9",

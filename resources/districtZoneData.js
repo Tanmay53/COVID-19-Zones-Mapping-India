@@ -1,7 +1,7 @@
-var hotspotDistricts = {
+var largeOutbreaks = {
   "ANDHRA PRADESH": ["Kurnool", "Guntur", "S.P.S. Nellore", "Prakasam", "Krishna", "Y.S.R.", "West Godavari", "Chittoor", "Visakhapatnam", "East Godavari", "Anantapur"],
 
-  "BIHAR": ["Siwan"],
+  "BIHAR": ["Siwan"], 
 
   "CHANDIGARH": ["Chandigarh"],
 
@@ -29,7 +29,7 @@ var hotspotDistricts = {
 
   "RAJASTHAN": ["Jaipur", "Tonk", "Jodhpur", "Banswara", "Kota", "Jhunjhunu", "Jaisalmer", "Bhilwara", "Bikaner", "Jhalawar", "Bharatpur"],
 
-  "TAMIL NADU": ["Chennai", "Tiruchirappalli", "Coimbatore", "Tirunelveli", "Erode", "Vellore", "Dindigul", "Viluppuram", "Tiruppur", "Theni", "Namakkal", "Kancheepuram", "Madurai", "Thoothukkudi", "Karur", "Virudhunagar", "Kanniyakumari", "Cuddalore", "Thiruvarur", "Salem", "Nagapattinam"],
+  "TAMIL NADU": ["Chennai", "Tiruchirappalli", "Coimbatore", "Tirunelveli", "Erode", "Vellore", "Dindigul", "Viluppuram", "Tiruppur", "Theni", "Namakkal", "Kancheepuram", "Madurai", "Thoothukkudi", "Karur", "Virudhunagar", "Kanniyakumari", "Cuddalore", "Thiruvallur", "Thiruvarur", "Salem", "Nagapattinam"],
 
   "TELANGANA": ["Hyderabad", "Nizamabad", "Warangal Urban", "Ranga Reddy", "Jogulamba Gadwal", "Medchal Malkajgiri", "Karimnagar", "Nirmal"],
 
@@ -39,6 +39,61 @@ var hotspotDistricts = {
 
   "WEST BENGAL": ["Kolkata", "Howrah", "Purba Medinipur", "North 24 Parganas"]
 };
+
+var clusters = {
+  "ANDAMAN & NICOBAR": ["South Andaman"],
+  "ASSAM": ["Golaghat", "Morigaon", "Nalbari", "Goalpara", "Dhubri"],
+  "BIHAR": ["Munger", "Begusarai", "Gaya"],
+  "CHHATTISGARH": ["Raipur"],
+  "DELHI": ["North West Delhi"],
+  "GUJARAT": ["Patan"],
+  "HARYANA": ["Ambala", "Karnal"],
+  "HIMACHAL PRADESH": ["Solan", "Una", "Sirmaur", "Chamba", "Kangra"],
+  "JAMMU & KASHMIR": ["Shupiyan", "Rajouri"],
+  "JHARKHAND": ["Ranchi", "Bokaro"],
+  "KARNATAKA": ["Dakshina Kannada", "Bidar", "Kalaburagi", "Bagalkote", "Dharwad"],
+  "KERALA": ["Wayanad"],
+  "LADAKH": ["Kargil"],
+  "MADHYA PRADESH": ["Morena"],
+  "MAHARASHTRA": ["Kolhapur", "Amravati", "Palghar"],
+  "ODISHA": ["Bhadrak"],
+  "PUNJAB": ["Mansa", "Amritsar", "Ludhiana", "Moga"],
+  "RAJASTHAN": ["Udaipur"],
+  "TELANGANA": ["Nalgonda"],
+  "UTTAR PRADESH": ["Bulandshahr", "Sitapur", "Basti", "Baghpat"],
+  "UTTARAKHAND": ["Nainital", "Udham Singh Nagar"]
+}
+
+
+var orangeZones = {
+  "ARUNACHAL PRADESH": ["Lohit"],
+  "ASSAM": ["Cachar", "Hailakandi", "Kamrup", "Kamrup Metropolitan", "Lakhimpur", "South Salmara Mancachar", "Karimganj"],
+  "BIHAR": ["Gopalganj", "Nawada", "Bhagalpur", "Saran", "Lakhisarai", "Nalanda", "Patna"],
+  "CHHATTISGARH": ["Bilaspur", "Durg", "Rajnandgaon"],
+  "DELHI": ["North East Delhi"],
+  "GOA": ["North Goa", "South Goa"],
+  "GUJARAT": ["Gandhinagar", "Bharuch", "Anand", "Kachchh", "Porbandar", "Chota Udaipur", "Mahesana", "Gir Somnath", "Dohad", "Jamnagar", "Morbi", "Panch Mahals", "Sabar Kantha", "Banas Kantha"],
+  "HARYANA": ["Panchkula", "Panipat", "Sirsa", "Sonipat", "Bhiwani", "Kaithal", "Charki Dadri", "Fatehabad", "Hisar", "Jind", "Rohtak", "Kurukshetra"],
+  "JAMMU & KASHMIR": ["Badgam", "Kulgam", "Pulwama", "Ganderbal", "Samba"],
+  "JHARKHAND": ["Hazaribagh", "Kodarma", "Giridih"],
+  "KARNATAKA": ["Ballari", "Mandya", "Bengaluru Rural", "Davanagere", "Udupi", "Gadag", "Tumakuru", "Kodagu", "Vijayapura", "Chikkaballapura", "Uttara Kannada"],
+  "KERALA": ["Thrissur", "Kollam", "Idukki", "Palakkad", "Kottayam", "Alappuzha"],
+  "LADAKH": ["Leh"],
+  "MADHYA PRADESH": ["Barwani", "Vidisha", "Jabalpur", "East Nimar", "Dewas", "Chhindwara", "Gwalior", "Shivpuri", "Betul", "Dhar", "Raisen", "Sagar", "Shajapur", "Mandsaur", "Ratlam", "Satna", "Sheopur"],
+  "MAHARASHTRA": ["Akola", "Latur", "Satara", "Ratnagiri", "Osmanabad", "Jalgaon", "Sindhudurg", "Raigarh", "Bid", "Hingoli", "Jalna", "Washim", "Gondiya", "Dhule", "Solapur"],
+  "MEGHALAYA": ["East Khasi Hills"],
+  "MIZORAM": ["Aizawl"],
+  "ODISHA": ["Cuttack", "Dhenkanal", "Jajapur", "Kalahandi", "Kendrapara", "Puri", "Sundargarh"],
+  "PUDUCHERRY": ["Puducherry", "Mahe"],
+  "PUNJAB": ["Hoshiarpur", "Rupnagar", "Barnala", "Faridkot", "Fatehgarh Sahib", "Sangrur", "Kapurthala", "Patiala", "Sri Muktsar Sahib"],
+  "RAJASTHAN": ["Churu", "Dausa", "Alwar", "Dungarpur", "Ajmer", "Karauli", "Pali", "Pratapgarh ", "Barmer", "Dhaulpur", "Nagaur", "Sikar", "Hanumangarh"],
+  "TAMIL NADU": ["Thanjavur", "Tiruvannamalai", "Kancheepuram", "Sivaganga", "The Nilgiris", "Viluppuram", "Ramanathapuram", "Perambalur", "Ariyalur"],
+  "TELANGANA": ["Suryapet", "Adilabad", "Mahabubnagar", "Kamareddy", "Vikarabad", "Sangareddy", "Medak", "Khammam", "Bhadradri Kothagudem", "Jagitial", "Jangoan", "Jayashankar", "Kumuram Bheem Asifabad", "Mulugu", "Peddapalli", "Nagarkurnool", "Mahabubabad", "Rajanna Sircilla", "Siddipet"],
+  "TRIPURA": ["Gomati", "North Tripura"],
+  "UTTAR PRADESH": ["Kanpur Nagar", "Varanasi", "Amroha", "Hapur", "Mahrajganj", "Pratapgarh", "Rampur", "Bareilly", "Ghazipur", "Azamgarh", "Hathras", "Muzaffarnagar", "Jaunpur", "Kheri", "Auraiya", "Banda", "Budaun", "Hardoi", "Kaushambi", "Mathura", "Mirzapur", "Rae Bareli", "Pilibhit", "Bara Banki", "Bijnor", "Prayagraj", "Shahjahanpur", "Etawah"],
+  "UTTARAKHAND": ["Hardwar", "Almora", "Garhwal"],
+  "WEST BENGAL": ["Kalimpong", "Jalpaiguri", "Hooghly", "Nadia", "Paschim Bardhaman", "Medinipur West", "South 24 Parganas", "Darjeeling"]
+}
 
 var stateCoordinates = {
   "ANDAMAN & NICOBAR": {
@@ -143,7 +198,7 @@ var stateCoordinates = {
   },
   "MADHYA PRADESH":{
     "lat":23.30039105,
-    "long":79.13001949,
+    "long":78.53001949,
     "zoom": 7
   },
   "MAHARASHTRA":{
@@ -208,7 +263,7 @@ var stateCoordinates = {
   },
   "TRIPURA":{
     "lat":23.83540428,
-    "long":91.27999914,
+    "long":92.07999914,
     "zoom": 9
   },
   "UTTAR PRADESH":{
@@ -231,5 +286,7 @@ var stateCoordinates = {
 console.log(Object.keys(stateCoordinates).length);
 
 // For Data validation through node using dataInspector.js
-// exports.districts = hotspotDistricts;
-// exports.coordinatedStates = stateCoordinates;
+//exports.largeOutbreaks = largeOutbreaks;
+//exports.clusters = clusters;
+//exports.orangeZones = orangeZones;
+//exports.coordinatedStates = stateCoordinates;

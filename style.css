@@ -189,6 +189,16 @@ article {
   text-align: center;
 }
 
+.conditions {
+  font-size: 0.8em;
+  background-color: #faeeba;
+  padding: 0.6em;
+}
+
+.conditions::before {
+  content: "* ";
+}
+
 footer {
   width: 90%;
   background:linear-gradient(90deg, #74ebd5 0%,#acb6e5 100% );
@@ -199,7 +209,7 @@ footer {
 }
 
 #introduction {
-  flex-basis: 90%;
+  flex-basis: 50%;
 }
 
 #introduction > * {
@@ -207,7 +217,7 @@ footer {
 }
 
 #credits {
-  text-align: right;
+  text-align: left;
 }
 
 #credits > * {
@@ -216,6 +226,15 @@ footer {
 
 #introName {
   font-size: 1.5em;
+}
+
+#credits > :first-child {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.creditor {
+  margin-top: 1em;
 }
 
 @media only screen and (min-device-width: 600px) {
@@ -248,10 +267,6 @@ footer {
   footer {
     flex-direction: column;
     font-size: 1em;
-  }
-
-  #credits {
-    text-align: left;
   }
 }
 
@@ -289,5 +304,10 @@ footer {
   #mapBoard {
     height: 23em;
     overflow: hidden;
+  }
+
+  #districtStatus {
+    font-size: 1.4em;
+    margin-top: 0.3em;
   }
 }

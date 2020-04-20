@@ -18,8 +18,10 @@ fs.readFile("../resources/india-districts-770.geojson", "utf-8", function(err, d
   }
 
   //console.log(districtNames);
-  dataValidator(dataFile.districts);
+  dataValidator(dataFile.largeOutbreaks);
   dataValidator(dataFile.coordinatedStates);
+  dataValidator(dataFile.clusters);
+  dataValidator(dataFile.orangeZones);
   function dataValidator(stateObject = {}) {
     for(key in stateObject) {
 

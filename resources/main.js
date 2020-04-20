@@ -57,7 +57,7 @@ districtSelector.addEventListener("change", function() {
     
     // There are two districts named as Balrampur one in UP and one in chattisgarh.
     // So to prevent from selecting wrong district a space is added to Balrampur of Chattisgarh in india-districts-770.geojson.
-    // same case for Pratapgarh and Hamirpur.
+    // same case for Pratapgarh and Hamirpur, Bilaspur in Himanchal Pradesh, Aurangabad in Bihar and Raigarh in Maharashtra.
 
     if(previousLayer.data != undefined) {
       previousLayer.data.setStyle(previousLayer.style);
@@ -65,8 +65,14 @@ districtSelector.addEventListener("change", function() {
 
     previousLayer.data = stateMap[1][districtSelector.value];
     previousLayer.style = getLayerStyle(previousLayer.data);
+
+    var layer = stateMap[1][districtSelector.value];
     
-    stateMap[1][districtSelector.value].setStyle(highlightedStyle);
+    layer.setStyle(highlightedStyle); //highlighting the Selected District.
+
+    document.getElementById("districtStatus").innerHTML = layer.feature.properties.zoneType;
+    document.getElementById("mapBoard").style.backgroundColor = layer.feature.properties.zoneColor;
+    console.log(stateMap[1][districtSelector.value]);
   }
 });
 
