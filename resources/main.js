@@ -55,7 +55,7 @@ districtSelector.addEventListener("change", function() {
     //stateMap[0].setZoom(coordinates.zoom);
     stateMap[0].flyTo(new L.latLng(coordinates.lat, coordinates.long), coordinates.zoom); 
     
-    // There are two districts named as Balrampur one in UP and one in chattisgarh.
+    // There are two districts named as Balrampur one in UP and one in c Chattisgarh.
     // So to prevent from selecting wrong district a space is added to Balrampur of Chattisgarh in india-districts-770.geojson.
     // same case for Pratapgarh and Hamirpur, Bilaspur in Himanchal Pradesh, Aurangabad in Bihar and Raigarh in Maharashtra.
 
