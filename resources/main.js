@@ -70,9 +70,8 @@ districtSelector.addEventListener("change", function() {
     
     layer.setStyle(highlightedStyle); //highlighting the Selected District.
 
-    document.getElementById("districtStatus").innerHTML = layer.feature.properties.zoneType;
-    document.getElementById("mapBoard").style.backgroundColor = layer.feature.properties.zoneColor;
-    console.log(stateMap[1][districtSelector.value]);
+    document.getElementById("districtStatus").innerHTML = layer.feature.properties.zoneType;//Printing Zone Type
+    document.getElementById("mapBoard").style.backgroundColor = layer.feature.properties.zoneColor;//Cahnging Zone Color
   }
 });
 
