@@ -49,7 +49,11 @@ function getLayerStyle(layer) {
 
 districtSelector.addEventListener("change", function() {
   if(selectionCheck(this, stateMapElement)) {
-    stateMapElement.style.display = "block";
+
+    if(stateMapElement.style.display == "none") {
+      stateMapElement.style.display = "block";
+      document.location = "#mapBoard";
+    }
 
     var coordinates = stateCoordinates[stateSelector.value];  // moving focus to the state.
     //stateMap[0].setZoom(coordinates.zoom);
@@ -72,6 +76,7 @@ districtSelector.addEventListener("change", function() {
 
     document.getElementById("districtStatus").innerHTML = layer.feature.properties.zoneType;//Printing Zone Type
     document.getElementById("mapBoard").style.backgroundColor = layer.feature.properties.zoneColor;//Cahnging Zone Color
+
   }
 });
 
