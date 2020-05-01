@@ -2,7 +2,7 @@ var dataFile = require("../resources/districtZoneData.js");
 
 var fs = require("fs");
 
-fs.readFile("../resources/dataFiles/india-districts-770.geojson", "utf-8", function(err, data) {
+fs.readFile("../resources/india-districts-770.geojson", "utf-8", function(err, data) {
   var jsonData = JSON.parse(data);
   var districtList = jsonData.features;
 
@@ -18,8 +18,9 @@ fs.readFile("../resources/dataFiles/india-districts-770.geojson", "utf-8", funct
   }
 
   //console.log(districtNames);
+  dataValidator(dataFile.largeOutbreaks);
   dataValidator(dataFile.coordinatedStates);
-  dataValidator(dataFile.redZones);
+  dataValidator(dataFile.clusters);
   dataValidator(dataFile.orangeZones);
   function dataValidator(stateObject = {}) {
     for(key in stateObject) {

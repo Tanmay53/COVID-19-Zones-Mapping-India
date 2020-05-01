@@ -1,100 +1,99 @@
-var redZones = {
-  "ANDAMAN & NICOBAR": ["South Andaman"],
+var largeOutbreaks = {
+  "ANDHRA PRADESH": ["Kurnool", "Guntur", "S.P.S. Nellore", "Prakasam", "Krishna", "Y.S.R.", "West Godavari", "Chittoor", "Visakhapatnam", "East Godavari", "Anantapur"],
 
-  "ANDHRA PRADESH": ["Kurnool", "Guntur", "S.P.S. Nellore", "Krishna", "Chittoor"],
-
-  "BIHAR": ["Munger", "Patna", "Rohtas", "Buxar", "Gaya"], 
+  "BIHAR": ["Siwan"], 
 
   "CHANDIGARH": ["Chandigarh"],
 
-  "CHHATTISGARH": ["Raipur"],
-
-  "DELHI": ["South Delhi", "South East Delhi", "Shahdara", "West Delhi", "North Delhi", "Central Delhi", "New Delhi", "East Delhi", "South West Delhi", "North East Delhi", "North West Delhi"],
-
-  "GUJARAT": ["Ahmadabad", "Vadodara", "Surat", "Anand", "Banas Kantha", "Panch Mahals", "Bhavnagar", "Gandhinagar", "Aravalli"],
-
-  "HARYANA": ["Sonipat", "Faridabad"],
-
-  "JAMMU & KASHMIR": ["Srinagar", "Bandipore", "Shupiyan", "Anantnag"],
-
-  "JHARKHAND": ["Ranchi"],
-
-  "KARNATAKA": ["Bengaluru", "Mysuru", "Bengaluru Rural"],
-
-  "KERALA": ["Kannur", "Kottayam"],
-
-  "MADHYA PRADESH": ["Indore", "Bhopal", "Ujjain", "Jabalpur", "Dhar", "Barwani", "East Nimar", "Dewas", "Gwalior"],
-
-  "MAHARASHTRA": ["Mumbai", "Pune", "Thane", "Nashik", "Palghar", "Nagpur", "Solapur", "Yavatmal", "Aurangabad", "Satara", "Dhule", "Akola", "Jalgaon", "Mumbai Suburban"],
-
-  "ODISHA": ["Jajapur", "Bhadrak", "Baleshwar"],
-
-  "PUNJAB": ["Jalandhar", "Patiala", "Ludhiana"],
-
-  "RAJASTHAN": ["Jaipur", "Jodhpur", "Kota", "Ajmer", "Bharatpur", "Nagaur", "Banswara", "Jhalawar"],
-
-  "TAMIL NADU": ["Chennai", "Madurai", "Namakkal", "Thanjavur", "Thiruvallur", "Tiruppur", "Virudhunagar", "Thiruvarur", "Vellore", "Kancheepuram"],
-
-  "TELANGANA": ["Hyderabad", "Warangal Urban", "Ranga Reddy", "Medchal Malkajgiri", "Suryapet", "Vikarabad"],
-
-  "UTTAR PRADESH": ["Agra", "Lucknow", "Saharanpur", "Kanpur Nagar", "Moradabad", "Firozabad", "Gautam Buddha Nagar", "Bulandshahr", "Meerut", "Rae Bareli", "Varanasi", "Bijnor", "Amroha", "Sant Kabir Nagar", "Aligarh", "Muzaffarnagar", "Rampur", "Mathura", "Bareilly"],
-  
-  "UTTARAKHAND": ["Hardwar"],
-
-  "WEST BENGAL": ["Kolkata", "Howrah", "North 24 Parganas", "South 24 Parganas", "Medinipur West", "Medinipur East", "Darjeeling", "Jalpaiguri", "Kalimpong", "Maldah"]
-};
-
-var orangeZones = {
-  "ANDHRA PRADESH": ["West Godavari", "Y.S.R.", "Anantapur", "Prakasam", "East Godavari", "Srikakulam", "Visakhapatnam"],
-
-  "ASSAM": ["Morigaon", "Goalpara", "Dhubri"],
-
-  "BIHAR": ["Nalanda", "Kaimur (bhabua)", "Siwan", "Gopalganj", "Bhojpur", "Begusarai", "Aurangabad ", "Madhubani", "Purba Champaran", "Bhagalpur", "Arwal", "Saran", "Nawada", "Lakhisarai", "Banka", "Vaishali", "Darbhanga", "Jehanabad", "Madhepura", "Purnia"],
-
   "CHHATTISGARH": ["Korba"],
 
-  "GUJARAT": ["Rajkot", "Bharuch", "Botad", "Narmada", "Chota Udaipur", "Mahisagar", "Mahesana", "Patan", "Kheda", "Valsad", "Dohad", "Kachchh", "Navsari", "Gir Somnath", "The Dangs", "Sabar Kantha", "Tapi", "Jamnagar", "Surendranagar"],
+  "DELHI": ["South Delhi", "South East Delhi", "Shahdara", "West Delhi", "North Delhi", "Central Delhi", "New Delhi", "East Delhi", "South West Delhi"],
 
-  "HARYANA": ["Gurugram", "Nuh", "Panipat", "Panchkula", "Palwal", "Rohtak", "Hisar", "Ambala", "Jhajjar", "Bhiwani", "Kaithal", "Kurukshetra", "Karnal", "Jind", "Sirsa", "Yamunanagar", "Fatehabad", "Charki Dadri"],
+  "GUJARAT": ["Ahmadabad", "Vadodara", "Surat", "Bhavnagar", "Rajkot"],
 
-  "HIMACHAL PRADESH": ["Solan", "Una", "Sirmaur", "Chamba", "Kangra", "Hamirpur"],
+  "HARYANA": ["Nuh", "Gurugram", "Palwal", "Faridabad"],
 
-  "JAMMU & KASHMIR": ["Baramula", "Kupwara", "Ganderbal", "Jammu", "Udhampur", "Kulgam", "Badgam", "Samba", "Kathua", "Rajouri", "Ramban", "Reasi"],
+  "JAMMU & KASHMIR": ["Srinagar", "Bandipore", "Baramula", "Jammu", "Udhampur", "Kupwara"],
 
-  "JHARKHAND": ["Bokaro", "Garhwa", "Dhanbad", "Deoghar", "Hazaribagh", "Simdega", "Giridih", "Koderma", "Jamtara"],
+  "KARNATAKA": ["Bengaluru", "Mysuru", "Belagavi"],
 
-  "KARNATAKA": ["Ballari", "Mandya", "Gadag", "Tumakuru", "Vijayapura", "Chikkaballapura", "Uttara Kannada", "Kalaburagi", "Bagalkote", "Dharwad", "Dakshina Kannada", "Bidar"],
+  "KERALA": ["Kasaragod", "Kannur", "Ernakulam", "Malappuram", "Thiruvananthapuram", "Pathanamthitta"],
 
-  "KERALA": ["Idukki", "Kasaragod", "Kozhikode", "Kollam", "Palakkad", "Pathanamthitta", "Malappuram", "Thiruvananthapuram", "Alappuzha", "Thrissur"],
+  "MADHYA PRADESH": ["Indore", "Bhopal", "West Nimar", "Ujjain", "Hoshangabad"],
 
-  "LADAKH": ["Leh", "Kargil"],
+  "MAHARASHTRA": ["Mumbai", "Pune", "Thane", "Nagpur", "Sangli", "Ahmadnagar", "Yavatmal", "Aurangabad", "Buldana", "Mumbai Suburban", "Nashik"],
 
-  "MADHYA PRADESH": ["Khargone", "Raisen", "Hoshangabad", "Ratlam", "Agar Malwa", "Mandsaur", "Sagar", "Shajapur", "Chhindwara", "Alirajpur", "Tikamgarh", "Shahdol", "Sheopur", "Dindori", "Burhanpur", "Harda", "Betul", "Vidisha", "Morena"],
+  "ODISHA": ["Khordha"],
 
-  "MAHARASHTRA": ["Raigarh ", "Ahmadnagar", "Amravati", "Buldana", "Nandurbar", "Kolhapur", "Hingoli", "Ratnagiri", "Jalna", "Nanded", "Chandrapur", "Parbhani", "Sangli", "Latur", "Bhandara", "Beed"],
+  "PUNJAB": ["S.A.S. Nagar", "Shahid Bhagat Singh Nagar", "Jalandhar", "Pathankot"],
 
-  "MEGHALAYA": ["East Khasi Hills"],
+  "RAJASTHAN": ["Jaipur", "Tonk", "Jodhpur", "Banswara", "Kota", "Jhunjhunu", "Jaisalmer", "Bhilwara", "Bikaner", "Jhalawar", "Bharatpur"],
+
+  "TAMIL NADU": ["Chennai", "Tiruchirappalli", "Coimbatore", "Tirunelveli", "Erode", "Vellore", "Dindigul", "Viluppuram", "Tiruppur", "Theni", "Namakkal", "Kancheepuram", "Madurai", "Thoothukkudi", "Karur", "Virudhunagar", "Kanniyakumari", "Cuddalore", "Thiruvallur", "Thiruvarur", "Salem", "Nagapattinam"],
+
+  "TELANGANA": ["Hyderabad", "Nizamabad", "Warangal Urban", "Ranga Reddy", "Jogulamba Gadwal", "Medchal Malkajgiri", "Karimnagar", "Nirmal"],
+
+  "UTTAR PRADESH": ["Agra", "Gautam Buddha Nagar", "Meerut", "Lucknow", "Ghaziabad", "Saharanpur", "Shamli", "Firozabad", "Moradabad"],
   
-  "ODISHA": ["Dhenkanal", "Kalahandi", "Kendrapara", "Sundargarh", "Khordha", "Koraput"],
+  "UTTARAKHAND": ["Dehradun"],
 
-  "PUDUCHERRY": ["Pondicherry"],
-
-  "PUNJAB": ["S.A.S. Nagar", "Pathankot", "Mansa", "Tarn Taran", "Amritsar", "Kapurthala", "Hoshiarpur", "Faridkot", "Sangrur", "Shahid Bhagat Singh Nagar", "Firozpur", "Sri Muktsar Sahib", "Moga", "Gurdaspur", "Barnala"],
-   
-  "RAJASTHAN": ["Tonk", "Jaisalmer", "Dausa", "Jhunjhunu", "Hanumangarh", "Bhilwara", "Sawai Madhopur", "Chittaurgarh", "Dungarpur", "Udaipur", "Dhaulpur", "Sikar", "Alwar", "Bikaner", "Churu", "Pali", "Barmer", "Karauli", "Rajsamand"],
-
-  "TAMIL NADU": ["Theni", "Nagapattinam", "Dindigul", "Viluppuram", "Coimbatore", "Cuddalore", "Salem", "Karur", "Thoothukkudi", "Tiruchirappalli", "Kanniyakumari", "Tiruvannamalai", "Ramanathapuram", "Tirunelveli", "The Nilgiris", "Sivaganga", "Perambalur", "Ariyalur", "Erode", "Pudukkottai", "Dharmapuri"],
-
-  "TELANGANA": ["Nizamabad", "Jogulamba Gadwal", "Nirmal", "Nalgonda", "Adilabad", "Sangareddy", "Kamareddy", "Kumuram Bheem Asifabad", "Karimnagar", "Khammam", "Mahabubnagar", "Jagitial", "Rajanna Sircilla", "Jayashankar Bhupalapally", "Medak", "Jangoan", "Narayanpet", "Mancherial"],
-
-  "TRIPURA": ["Gomati", "North Tripura"],
-
-  "UTTAR PRADESH": ["Ghaziabad", "Hapur", "Baghpat", "Basti", "Budaun", "Sambhal", "Auraiya", "Shamli", "Sitapur", "Bahraich", "Kannauj", "Azamgarh", "Mainpuri", "Shrawasti", "Banda", "Jaunpur", "Etah", "Kasganj", "Sultanpur", "Prayagraj", "Jalaun", "Mirzapur", "Etawah", "Pratapgarh", "Ghazipur", "Gonda", "Mau", "Bhadohi", "Unnao", "Pilibhit", "Balrampur", "Ayodhya", "Gorakhpur", "Jhansi", "Hardoi", "Kaushambi"],
-
-  "UTTARAKHAND": ["Dehradun", "Nainital"],
-
-  "WEST BENGAL": ["Hooghly", "Paschim Bardhaman", "Nadia", "Purba Bardhaman", "Murshidabad"]
+  "WEST BENGAL": ["Kolkata", "Howrah", "Purba Medinipur", "North 24 Parganas"]
 };
+
+var clusters = {
+  "ANDAMAN & NICOBAR": ["South Andaman"],
+  "ASSAM": ["Golaghat", "Morigaon", "Nalbari", "Goalpara", "Dhubri"],
+  "BIHAR": ["Munger", "Begusarai", "Gaya"],
+  "CHHATTISGARH": ["Raipur"],
+  "DELHI": ["North West Delhi"],
+  "GUJARAT": ["Patan"],
+  "HARYANA": ["Ambala", "Karnal"],
+  "HIMACHAL PRADESH": ["Solan", "Una", "Sirmaur", "Chamba", "Kangra"],
+  "JAMMU & KASHMIR": ["Shupiyan", "Rajouri"],
+  "JHARKHAND": ["Ranchi", "Bokaro"],
+  "KARNATAKA": ["Dakshina Kannada", "Bidar", "Kalaburagi", "Bagalkote", "Dharwad"],
+  "KERALA": ["Wayanad"],
+  "LADAKH": ["Kargil"],
+  "MADHYA PRADESH": ["Morena"],
+  "MAHARASHTRA": ["Kolhapur", "Amravati", "Palghar"],
+  "ODISHA": ["Bhadrak"],
+  "PUNJAB": ["Mansa", "Amritsar", "Ludhiana", "Moga"],
+  "RAJASTHAN": ["Udaipur"],
+  "TELANGANA": ["Nalgonda"],
+  "UTTAR PRADESH": ["Bulandshahr", "Sitapur", "Basti", "Baghpat"],
+  "UTTARAKHAND": ["Nainital", "Udham Singh Nagar"]
+}
+
+
+var orangeZones = {
+  "ARUNACHAL PRADESH": ["Lohit"],
+  "ASSAM": ["Cachar", "Hailakandi", "Kamrup", "Kamrup Metropolitan", "Lakhimpur", "South Salmara Mancachar", "Karimganj"],
+  "BIHAR": ["Gopalganj", "Nawada", "Bhagalpur", "Saran", "Lakhisarai", "Nalanda", "Patna"],
+  "CHHATTISGARH": ["Bilaspur", "Durg", "Rajnandgaon"],
+  "DELHI": ["North East Delhi"],
+  "GOA": ["North Goa", "South Goa"],
+  "GUJARAT": ["Gandhinagar", "Bharuch", "Anand", "Kachchh", "Porbandar", "Chota Udaipur", "Mahesana", "Gir Somnath", "Dohad", "Jamnagar", "Morbi", "Panch Mahals", "Sabar Kantha", "Banas Kantha"],
+  "HARYANA": ["Panchkula", "Panipat", "Sirsa", "Sonipat", "Bhiwani", "Kaithal", "Charki Dadri", "Fatehabad", "Hisar", "Jind", "Rohtak", "Kurukshetra"],
+  "JAMMU & KASHMIR": ["Badgam", "Kulgam", "Pulwama", "Ganderbal", "Samba"],
+  "JHARKHAND": ["Hazaribagh", "Kodarma", "Giridih"],
+  "KARNATAKA": ["Ballari", "Mandya", "Bengaluru Rural", "Davanagere", "Udupi", "Gadag", "Tumakuru", "Kodagu", "Vijayapura", "Chikkaballapura", "Uttara Kannada"],
+  "KERALA": ["Thrissur", "Kollam", "Idukki", "Palakkad", "Kottayam", "Alappuzha"],
+  "LADAKH": ["Leh"],
+  "MADHYA PRADESH": ["Barwani", "Vidisha", "Jabalpur", "East Nimar", "Dewas", "Chhindwara", "Gwalior", "Shivpuri", "Betul", "Dhar", "Raisen", "Sagar", "Shajapur", "Mandsaur", "Ratlam", "Satna", "Sheopur"],
+  "MAHARASHTRA": ["Akola", "Latur", "Satara", "Ratnagiri", "Osmanabad", "Jalgaon", "Sindhudurg", "Raigarh", "Bid", "Hingoli", "Jalna", "Washim", "Gondiya", "Dhule", "Solapur"],
+  "MEGHALAYA": ["East Khasi Hills"],
+  "MIZORAM": ["Aizawl"],
+  "ODISHA": ["Cuttack", "Dhenkanal", "Jajapur", "Kalahandi", "Kendrapara", "Puri", "Sundargarh"],
+  "PUDUCHERRY": ["Puducherry", "Mahe"],
+  "PUNJAB": ["Hoshiarpur", "Rupnagar", "Barnala", "Faridkot", "Fatehgarh Sahib", "Sangrur", "Kapurthala", "Patiala", "Sri Muktsar Sahib"],
+  "RAJASTHAN": ["Churu", "Dausa", "Alwar", "Dungarpur", "Ajmer", "Karauli", "Pali", "Pratapgarh ", "Barmer", "Dhaulpur", "Nagaur", "Sikar", "Hanumangarh"],
+  "TAMIL NADU": ["Thanjavur", "Tiruvannamalai", "Kancheepuram", "Sivaganga", "The Nilgiris", "Viluppuram", "Ramanathapuram", "Perambalur", "Ariyalur"],
+  "TELANGANA": ["Suryapet", "Adilabad", "Mahabubnagar", "Kamareddy", "Vikarabad", "Sangareddy", "Medak", "Khammam", "Bhadradri Kothagudem", "Jagitial", "Jangoan", "Jayashankar", "Kumuram Bheem Asifabad", "Mulugu", "Peddapalli", "Nagarkurnool", "Mahabubabad", "Rajanna Sircilla", "Siddipet"],
+  "TRIPURA": ["Gomati", "North Tripura"],
+  "UTTAR PRADESH": ["Kanpur Nagar", "Varanasi", "Amroha", "Hapur", "Mahrajganj", "Pratapgarh", "Rampur", "Bareilly", "Ghazipur", "Azamgarh", "Hathras", "Muzaffarnagar", "Jaunpur", "Kheri", "Auraiya", "Banda", "Budaun", "Hardoi", "Kaushambi", "Mathura", "Mirzapur", "Rae Bareli", "Pilibhit", "Bara Banki", "Bijnor", "Prayagraj", "Shahjahanpur", "Etawah"],
+  "UTTARAKHAND": ["Hardwar", "Almora", "Garhwal"],
+  "WEST BENGAL": ["Kalimpong", "Jalpaiguri", "Hooghly", "Nadia", "Paschim Bardhaman", "Medinipur West", "South 24 Parganas", "Darjeeling"]
+}
 
 var stateCoordinates = {
   "ANDAMAN & NICOBAR": {
@@ -282,11 +281,12 @@ var stateCoordinates = {
     "long":88.32994665,
     "zoom": 7
   }
-};
+}
 
 console.log(Object.keys(stateCoordinates).length);
 
-// For Data validation through node using non_frequent_resources/dataInspector.js
-//exports.redZones = redZones;
+// For Data validation through node using dataInspector.js
+//exports.largeOutbreaks = largeOutbreaks;
+//exports.clusters = clusters;
 //exports.orangeZones = orangeZones;
 //exports.coordinatedStates = stateCoordinates;

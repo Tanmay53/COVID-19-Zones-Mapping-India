@@ -1,6 +1,8 @@
 var districtNames = {};
 
-var redZoneStates = Object.keys(redZones);
+var largeOutbreakStates = Object.keys(largeOutbreaks);
+var clusterStates = Object.keys(clusters);
+var redZoneStates = largeOutbreakStates.concat(clusterStates);
 var orangeZoneStates = Object.keys(orangeZones);
 
 function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 80.9629) {
@@ -41,7 +43,7 @@ function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 8
         }
     };
 
-    geoFile.open("GET", "resources/dataFiles/india-districts-770.geojson", false);
+    geoFile.open("GET", "resources/india-districts-770.geojson", false);
     geoFile.send();
 
     if(Object.keys(districtNames).length == 0) { // keeping a one time changing list of all state-wise districts.
@@ -55,8 +57,8 @@ function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 8
         if(mappedDistricts.indexOf(districtName) == -1) {
             mappedDistricts.push(districtName);
 
-            if((redZoneStates.indexOf(stateName) != -1) &&
-            (redZones[stateName].indexOf(districtName) != -1)) {
+            if(((largeOutbreakStates.indexOf(stateName) != -1) && (largeOutbreaks[stateName].indexOf(districtName) != -1)) ||
+            ((clusterStates.indexOf(stateName) != -1) && (clusters[stateName].indexOf(districtName) != -1))) {
                 return redZoneStyle;
             }
             else if((orangeZoneStates.indexOf(stateName) != -1) &&
@@ -80,8 +82,12 @@ function createMapAt(elementId, zoomLevel = 5, latitude = 23.5937, longitude = 8
         var stateName = feature.properties["stname"];
         var districtName = feature.properties["dtname"];
 
-        if((redZoneStates.indexOf(stateName) != -1) && (redZones[stateName].indexOf(districtName) != -1)) {
-            feature.properties.zoneType = "Red Zone";
+        if((largeOutbreakStates.indexOf(stateName) != -1) && (largeOutbreaks[stateName].indexOf(districtName) != -1)) {
+            feature.properties.zoneType = "Red Zone (Large OutBreak)";
+            feature.properties.zoneColor = "#ff0000";
+        }
+        else if((clusterStates.indexOf(stateName) != -1) && (clusters[stateName].indexOf(districtName) != -1)) {
+            feature.properties.zoneType = "Red Zone (Cluster)";
             feature.properties.zoneColor = "#ff0000";
         }
         else if((orangeZoneStates.indexOf(stateName) != -1) && (orangeZones[stateName].indexOf(districtName) != -1)) {
