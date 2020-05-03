@@ -20,9 +20,12 @@ header {
   width: 94%;
   padding: 3%;
   font-size: 2em;
-  background:linear-gradient(90deg, #74ebd5 0%,#acb6e5 100% );
   color: #fff;
   z-index: 2;
+}
+
+header, footer {
+  background:linear-gradient(90deg, #74ebd5 0%,#acb6e5 100% );
 }
 
 header > a {
@@ -40,10 +43,13 @@ header > a {
   box-shadow: 4px 4px 5px 0px #999;
   text-align: center;
   font-weight: 700;
-  cursor: pointer;
+  z-index: 2;
+}
+
+.clickButton {
   -moz-user-select: none;
   -webkit-user-select: none;
-  z-index: 2;
+  cursor: pointer;
 }
 
 #mapButton:hover {
@@ -128,6 +134,48 @@ article {
   text-align: justify;
 }
 
+#categoryList > dd > :nth-child(n + 1) {
+  margin-bottom: 0.2em;
+}
+
+#categoryList, #activities {
+  text-align: justify;
+}
+
+#activities > dt {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#activities > dd {
+  max-height: 10em;
+  overflow: hidden;
+  font-size: 0.9em;
+  border-bottom: 0.1em #000 solid;
+  margin-bottom: 2em;
+}
+
+.activityList{
+  margin-top: 0.2em;
+}
+
+.expandButton {
+  position: relative;
+  top: 7em;
+  left: 0%;
+  width: 100%;
+  height: 0em;
+  text-align: center;
+}
+
+.expandButton > span {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
+  padding: 1em;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0px 0px 1em 1em;
+}
+
 #categoryList > dd > div > span {
   font-weight: 700;
 }
@@ -204,7 +252,6 @@ article {
 
 footer {
   width: 90%;
-  background:linear-gradient(90deg, #74ebd5 0%,#acb6e5 100% );
   display: flex;
   flex-direction: row;
   padding: 5%;
@@ -270,6 +317,11 @@ footer {
   footer {
     flex-direction: column;
     font-size: 1em;
+  }
+
+  #categoryList > dd, #activities > dd {
+    margin-left: 0em;
+    margin-top: 0.6em;
   }
 }
 

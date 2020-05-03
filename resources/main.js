@@ -100,4 +100,15 @@ function selectionCheck(currentElement, dependent) {
 
 document.getElementById("mapButton").addEventListener("click", function() {
   document.location = "#mapBox";
-})
+});
+
+var expandButtons = document.getElementsByClassName("expandButton");
+
+console.log(expandButtons);
+
+for(var index = 0; index < expandButtons.length; index++) {
+  expandButtons[index].addEventListener("click", function() {
+    this.parentElement.style.maxHeight = "initial";
+    this.style.display = "none";
+  })
+}

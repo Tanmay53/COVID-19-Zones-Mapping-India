@@ -20,7 +20,7 @@
         <header>
             <a href="#distMap">COVID - 19 District Zones Mapped</a>
         </header>
-        <div id="mapButton">Get District Info</div>
+        <div id="mapButton" class="clickButton">Get District Info</div>
         <article>
             <div id="map" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0" style="position: relative;"></div>
             <div class="nText">India is facing a lot of difficluties in the form of <a href="#defineCorona">COVID - 19</a>, a disease which has affected many parts of the world very adversely.</div>
@@ -39,6 +39,7 @@
             </div>
             <div class="nText">It came out to be a great step because the stats show that India has shown a very less growth of <a href="#defineCorona">COVID - 19</a> cases has been very minimal as compared to the other countries.</div>
             <div class="nText">After the completion of the 21 day lockdown an extention of <b>19</b> days was announced by the PM of India till <b>3<sup>rd</sup> May.</b></div>
+            <div class="nText">Now, the Lockdown is Extended by <b>14</b> till <b>17 May, 2020.</b></div>
             <div class="nText">But this time seeing the control of the situation, the non - affected districts will be partially releaved from the lockdown.</div>
             <div class="nText heading2">The districts are classified into three categories :-</div>
             <dl id="categoryList">
@@ -46,25 +47,99 @@
                 <dd>
                     <div class="catInfo">The Hotspot districts or the areas reporting large number of <a href="#defineCorona">COVID - 19</a> cases and high growth rate.</div>
                     <div class="noOfDistricts"> <span>District Count</span> 130 </div>
-                    <div class="services"> <span>Exemptions</span>No business activity except the <a>earlier exempted activities</a> will be allowed with door to door facilities.</div>
                     <div class="scope"> <span>Criterion for improvement</span> If no new cases are reported for <b>14</b> Days then it will change to Orange Zone.</div>
                 </dd>
                 <dt>Orange Zones :</dt>
                 <dd>
                     <div class="catInfo">The areas with a limited number of cases in the past and with no surge in positive cases recently.</div>
                     <div class="noOfDistricts"> <span>District Count </span> 284 </div>
-                    <div class="services"> <span>Exemptions</span>Only restricted activities such as limited public transport and farm products harvesting and MSME's engaged in manufacturing of essential items.</div>
                     <div class="scope"> <span>Criterion for improvement</span>If no more cases are reported for <b>14</b> Days then it will change to Green Zone.</div>
                 </dd>
                 <dt>Green Zones:</dt>
                 <dd>
                     <div class="catInfo">The Districts with no reported positive Coronavirus cases.</div>
                     <div class="noOfDistricts"> <span>District Count </span> 319 </div>
-                    <div class="services"> <span>Exemptions </span>Limited movement of people linked to essential services may be given exemption. Government revenue generating businesses may be exempted.</div>
                 </dd>
             </dl>
             <br />
-            <br />
+            <dl id="activities">
+                <dt>Restricted Activities (Whole Country)</dt>
+                <dd>
+                    <div class="expandButton clickButton"> <span> Read More... </span> </div>
+                    <ul class="activityList">
+                        <li>All domestic and international air travel of passengers, except for medical/security purposes or as permitted by MHA.</li>
+                        <li>All passenger movement by trains, except for security purposes or for purposes as permitted by MHA.</li>
+                        <li>All cinema halls, shopping malls, gymnasiums, sports complexes, swimming pools, entertainment parks, theatres, bars and auditoriums, assembly halls and similar places.</li>
+                        <li>All social/political/sports/entertainment/academic cultural or religious functions/other gatherings.</li>
+                        <li>Inter-state buses for public transport, or as permitted by the MHA.</li>
+                        <li>Inter-state movement of individuals except for medical reasons, or as permitted by MHA.</li>
+                        <li>All schools, colleges, education /training/-coaching institutions etc.</li>
+                        <li>Hospitality services other than those used for housing, health/police/government officials/healthcare workers, stranded persons including tourists, and those used for quarantine facilities.</li>
+                        <li>All religious places/places of worship for public.</li>
+                    </ul>
+                </dd>
+
+                <dt>Exempted Activities (Red Zone)</dt>
+                <dd>
+                    <div class="expandButton clickButton"> <span> Read More... </span> </div>
+                    <ul class="activityList">
+                        <li>Movement of Vehicles for permitted activities, 4 Wheeler (1 + 2), 2 Wheeler (1 + 0).</li>
+                        <li>Special Economic Zones, Export-Oriented Units, Industrial estates/townships with access control in urban areas and Manufacturing units producing Essential Goods(Medical Devices, Pharmaceuticals).</li>
+                        <li>Manufacturing of IT Hardware and Jute Industry and manufacturers of Packaging Material, provided that Safety Guidelines are followed.</li>
+                        <li>Construction activities in Rural Areas has been permitted only to <b>in-situ</b> construction where the workers are available on site and construction of Renewable Energy Projects.</li>
+                        <li>All Standalone Shops (both in Urban and Rural areas) and Shops in Residential Complexes have been allowed to reopen for business.</li>
+                        <li>E-Commerce activities are allowed limited to Essential Goods.</li>
+                        <li>Private Offices with <b>33%</b> of their Strength.</li>
+                        <li>Government Offices with Senior Officers of the Deputy Secretary level and above at Full Strength, with the Remaining Staff attending up to <b>33%</b> as per requirement.</li>
+                        <li>Defense and Security Services, Health and Family Welfare, Police, Prisons, Home Guards, Civil Defence, Fire and Emergency Services, Disaster Management and related services, National Informatics Centre (NIC), customs, Food Corporation of India (FCI), National Cadet Corps (NCC), Nehru Yuvak Kendra (NYK) and Municipal Services.</li>
+                        <li>All Industrial and Construction activities in Rural Areas. These include MNREGA works, Food-Processing Units and Brick Kilns.</li>
+                        <li>All Agriculture and Animal Husbandry (including Inland and Marine Fisheries) activities, inclusive of their Supply Chain.</li>
+                        <li>All Health Services, including AYUSH.</li>
+                        <li>Banks, NBFCs, Insurance and Capital Market activities along with Credit Co-operative Societies.</li>
+                        <li>Homes for Children, Senior Citizens and Widows (including Anganwadis).</li>
+                        <li>Apart from Courier/Postal services, Public Utility Offices (including Internet) will remain open.</li>
+                        <li>Print and Electronic media, IT and IT-Enabled services, Data and Call Centres, Cold Storage and Warehousing services, Private Security and Facility Management services, and services provided by self-employed persons, except for Barbers.</li>
+                    </ul>
+                </dd>
+
+                <dt>Extra Exemptions (for Orange Zones)</dt>
+                <dd>
+                    <div class="expandButton clickButton"> <span> Read More... </span> </div>
+                    <ul class="activityList">
+                        <li>Inter-District and Intra-District plying of Buses.</li>
+                        <li>Taxis and cab aggregator permitted with 1 Driver and 2 Passengers.</li>                           
+                        <li>4 Wheeler Vehicles allowed with maximum of 2 Passengers and 1 Driver.</li>
+                    </ul>
+                </dd>
+
+                <dt>Directives for Public Places</dt>
+                <dd>
+                    <div class="expandButton clickButton"> <span> Read More... </span> </div>
+                    <ul class="activityList">
+                        <li>Marriage related gatherings shall ensure social distancing, guests not more than 50.</li>
+                        <li>Funeral, last rites to ensure social distancing not more than 20 people allowed.</li>
+                        <li>Wearing face cover compulsory, ensure social distancing.</li>
+                        <li>Gathering of more than 5 people not allowed in public places.</li>
+                        <li>Spitting in public places punishable offence.</li>
+                    </ul>
+                </dd>
+
+                <dt>Directives for Work Places</dt>
+                <dd>
+                    <div class="expandButton clickButton"> <span> Read More... </span> </div>
+                    <ul>
+                        <li>Ensure social distancing in company transport.</li>
+                        <li>Face cover compulsory.</li>
+                        <li>Thermal scanning, handwash, sanitiser at workplaces.</li>
+                        <li>Adequate gaps between shifts, staggered lunch break.</li>
+                        <li>Frequent sanitisation of the entire workplace.</li>
+                        <li>Large physical meetings to be avoided.</li>
+                        <li>Hospital/clinics authorised to treat COVID-19 patients should be identified at nearby locations, a list should be available at the workplace at all times.</li>
+                        <li>Intensive communication, training on good hygiene practices.</li>
+                        <li>Aarogya Setu Mobile App mandatory for all employees and heads of offices to ensure compliance.</li>
+                    </ul>
+                </dd>
+            </dl>
             <a name="distMap"></a>
             <div id="mapBox">
                 <div id="mapForm">
